@@ -10,10 +10,11 @@ export default function CheckToken (request: Request, response: Response, next: 
     // Como podem ver abaixo, eu incluí apenas a parte /login da rota /auth/login
     const publicPaths = [
         '/login',
-        // '/createAdmin',
-        // '/createUser',
+        '/createAdmin',
+        '/createUser',
         '/updatePassword',
-        '/recovery'
+        '/recovery',
+        '/editUser'
     ];
 
     if (publicPaths.includes(request.path)) return next();

@@ -8,8 +8,13 @@ import { findUserByEmail } from "../useCases/user/FindUserByEmail/FindUserByEmai
 import { findUserByUserName } from "../useCases/user/FindUserByUserName/FindUserByUserName";
 import { findUserByFullName } from "../useCases/user/FindUserByFullName/FindUserByFullName";
 import { createAdmin } from "../useCases/user/CreateAdmin/CreateAdmin";
+import { editUser } from "../useCases/user/EditUser/EditUser";
 
 const router = Router();
+
+router.post('/editUser', (request: Request, response: Response) => {
+    return editUser.editUser(request, response);
+});
 
 router.get('/getAll', (request: Request, response: Response) => {
     return getAllUsers.getAllUsers(request, response);

@@ -3,6 +3,14 @@ import User from "../../model/User";
 import IUserRepository from "../IUserRepository";
 
 export default class UserRepository implements IUserRepository {
+    // edit user
+    async editUser(id: number, userName: string, fullName: string,cpf:string,email:string): Promise<User | null> {
+        const updatedInfo = { userName,fullName,cpf,email };
+        await User.update(updatedInfo, { where: { id:id } });
+        const updatedUser = await User.findByPk(id);
+        return updatedUser;
+      }
+
     // create user
     saveUser(user: User): Promise<User> {
         return User.create({

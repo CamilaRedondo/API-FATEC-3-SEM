@@ -1,0 +1,15 @@
+import User from "../model/User";
+
+export default interface IUserRepository {
+    editUser(id:number, username:string,fullName:string,cpf:string,email:string): Promise<User | null>
+    saveUser(user: User) : Promise<User>
+    saveAdmin(user: User) : Promise<User>
+    findById(id: number) : Promise<User | null>
+    findByEmail(email: string) : Promise<User | null>
+    findByCpf(cpf: string) : Promise<User | null>
+    findByUserName(userName: string) : Promise<User | null>
+    findByFullName(fullName: string) : Promise<User | null>
+    findAll() : Promise<User[]>
+    removeByEmail(email: string): Promise<User | null>
+    updatePasswordByEmail(email: string, newPassword: string): Promise<number> 
+}
